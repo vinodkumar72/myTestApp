@@ -18,5 +18,53 @@
 		</dependency>
 	</dependencies>
 
-    
+ <build>
+  <plugins>
+    <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.7.1.201405082137</version>
+        <executions>
+            <execution>
+                <id>default-prepare-agent</id>
+                <goals>
+                    <goal>prepare-agent</goal>
+                </goals>
+            </execution>
+            <execution>
+                <id>default-report</id>
+                <phase>prepare-package</phase>
+                <goals>
+                    <goal>report</goal>
+                </goals>
+            </execution>            
+        </executions>
+    </plugin>
+        <plugin>
+            <groupId>org.sonarsource.scanner.maven</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+            <version>3.0.1</version>
+        </plugin>    
+  </plugins>
+  </build>
+	<profiles>
+	<profile>
+		<id>sonar</id>
+		<activation>
+			<activeByDefault>true</activeByDefault>
+		</activation>
+		<properties>
+			<!-- EXAMPLE FOR MYSQL -->
+<!-- 			<sonar.jdbc.url>
+				jdbc:mysql://localhost:3306/sonar?useUnicode=true&amp;characterEncoding=utf8
+			</sonar.jdbc.url>
+			<sonar.jdbc.username>sonar</sonar.jdbc.username>
+			<sonar.jdbc.password>sonar</sonar.jdbc.password> -->
+			<!-- Optional URL to server. Default value is http://localhost:9000 -->
+			<sonar.host.url>
+				http://ec2-13-59-42-10.us-east-2.compute.amazonaws.com:9000/
+			</sonar.host.url>
+		</properties>
+	</profile>
+	</profiles>
 </project>
