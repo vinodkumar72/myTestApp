@@ -62,7 +62,7 @@
 			<sonar.jdbc.password>sonar</sonar.jdbc.password> -->
 			<!-- Optional URL to server. Default value is http://localhost:9000 -->
 			<sonar.host.url>
-				http://ec2-13-59-42-10.us-east-2.compute.amazonaws.com:9000/
+				http://localhost:9000/
 			</sonar.host.url>
 		</properties>
 	</profile>
